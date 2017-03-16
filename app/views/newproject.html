@@ -1,0 +1,114 @@
+<div ng-controller="userCtrl as user">
+
+  <div class="row">
+    <div class="col-sm-5">
+      <md-content>
+        <h2>New project</h2>
+        <p><input required type="text" ng-model="user.project.name" size="25" placeholder="Name"></p>
+        <p>Deadline <md-datepicker ng-model="user.project.deadline" md-placeholder="Enter deadline" md-open-on-focus=""></md-datepicker></p>
+      </md-content>
+    </div>
+    <div class="col-sm-5 well">
+
+      <div class="row-stats" aria-label="The estimate is based on the costs of the currently unfinished tasks.">
+        <md-tooltip>The estimate is based on the costs of the currently unfinished tasks.</md-tooltip>
+        <b>€{{user.calcEstimatedCost()}}</b>
+        <em>Estimated cost</em>
+      </div>
+      <div class="row-stats" aria-label="The estimate is based on the times of the currently unfinished tasks.">
+        <md-tooltip>The estimate is based on the times of the currently unfinished tasks.</md-tooltip>
+        <b>{{user.calcEstimatedTime()}} hours</b>
+        <em>Estimated time needed</em>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    Task list
+  -->
+  <h3>Task list</h3>
+
+  <div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Task</th>
+        <th>Estimated time</th>
+        <th>Estimated cost</th>
+        <th>Finished?</th>
+        <th>Delete?</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="x in user.project.taskList">
+        <td ng-cloak data-ng-class="x.finished ? 'strikethrough' : 'null'">{{x.task}}</td>
+        <td ng-cloak data-ng-class="x.finished ? 'strikethrough' : 'null'">{{x.time}} hours</td>
+        <td ng-cloak data-ng-class="x.finished ? 'strikethrough' : 'null'">€{{x.cost}}</td>
+        <td><button type="button" data-ng-class="x.finished ? 'btn btn-danger' : 'btn btn-success'" ng-click="user.toggleDone(x);">
+          <i ng-cloak data-ng-class="x.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok'"></i>
+        </button></td>
+        <td><button type="button" class="btn btn-danger" ng-click="user.removeTask(x)">
+          <i class="glyphicon glyphicon-trash"></i>
+        </button></td>
+      </tr>
+      </tbody>
+    </table>
+<!-- TODO Add this to the bottom of the table -->
+    <form ng-submit="user.addTask()">
+      <input type="text" ng-model="taskInput" size="25" placeholder="Task description">
+      <input type="number" ng-model="taskTime" size="8" placeholder="Hours">
+      <input type="number" ng-model="taskCost" size="8" placeholder="€">
+      <input type="submit" value="Add task" class="btn btn-default">
+    </form>
+<!--  <button ng-hide="toggleTool" type="button" class="btn btn-block btn-primary" ng-click="toggleTool = true;">
+    <i ng-cloak class="glyphicon glyphicon-chevron-down"></i>
+  </button>-->
+
+  <div id="planningTool" class="well">
+    <div>
+      <h3>Materials</h3>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Material</th>
+          <th>Amount</th>
+          <th>Total cost</th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-show="user.project.materials > 0" ng-repeat="x in user.project.taskList">
+          <td ng-cloak data-ng-class="x.finished ? 'strikethrough' : 'null'">{{x.task}}</td>
+          <td ng-cloak data-ng-class="x.finished ? 'strikethrough' : 'null'">{{x.time}} hours</td>
+          <td ng-cloak data-ng-class="x.finished ? 'strikethrough' : 'null'">€{{x.cost}}</td>
+          <td><button type="button" data-ng-class="x.finished ? 'btn btn-danger' : 'btn btn-success'" ng-click="user.toggleDone(x);">
+            <i ng-cloak data-ng-class="x.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok'"></i>
+          </button></td>
+          <td><button type="button" class="btn btn-danger" ng-click="user.removeTask(x)">
+            <i class="glyphicon glyphicon-trash"></i>
+          </button></td>
+        </tr>
+
+        <tr ng-repeat="material in user.project.materials">
+          <td>{{material.name}}</td>
+          <td>{{material.amount}} {{material.quantitytype}}</td>
+          <td>€{{material.cost}}</td>
+          <td><i class="glyphicon glyphicon-pencil"></i></td>
+          <td><i class="btn btn-danger glyphicon glyphicon-trash" ng-click="user.removeMaterial(material)"></i></td>
+        </tr>
+
+        <tr>
+          <td ng-init="user.getMaterials()"><select ng-model="newMaterial" class="btn btn-default" ng-options="typeMaterial.name for typeMaterial in materials"></select></td>
+          <td><input class="form-control" type="number" ng-model="newMaterial.amount" placeholder="Amount per {{newMaterial.quantitytype}}"></td>
+          <td><input class="form-control" type="number" ng-model="newMaterial.cost" placeholder="€"></td>
+          <td><button type="button" class="btn btn-success" ng-click="user.addMaterial(newMaterial)"><i class="glyphicon glyphicon-plus"></i></button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,18 @@
+<div ng-controller="userCtrl as user">
+  <div data-ng-init="user.getUserDetails()">
+    <h1>Welcome back {{userDetails.username}}!</h1>
+  </div>
+    <!-- Left column -->
+  <div class="col-sm-7">Other stuff
+
+  </div>
+
+  <!-- Right column -->
+  <div data-ng-init="user.getProjectsByUserid(1)" class="col-sm-5 well">
+    <h3>Projects</h3>
+    <p><a class="btn btn-primary" ng-href="#/newproject">New project</a></p>
+    <div ng-include="'views/partials/projectinfo.html'"></div>
+    <div ng-include="'views/partials/projects.html'"></div>
+  </div>
+
+</div>

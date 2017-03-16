@@ -1,0 +1,12 @@
+{
+  "id": 2,
+  "name":"Chloe Lyons",
+  "username": "ChloeLyons",
+  "email": "chloe@mel.nl",
+  "datejoined": "25-08-2016",
+  "private": false,
+  "website": "http://chloe.ly",
+  "facebook": "http://facebook.com/chloelyons",
+  "twitter": "http://twitter.com/chl",
+  "likes": 3
+}

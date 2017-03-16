@@ -1,0 +1,23 @@
+[
+  {
+    "id": 4,
+    "userid": 2,
+    "name": "Chloe Price",
+    "moneyspent": 30,
+    "timespent": 6
+  },
+  {
+    "id": 5,
+    "userid": 2,
+    "name": "Lydia",
+    "moneyspent": 80,
+    "timespent": 12
+  },
+  {
+    "id": 6,
+    "userid": 2,
+    "name": "Collector Armor",
+    "moneyspent": 130,
+    "timespent": 33
+  }
+]

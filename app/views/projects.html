@@ -1,0 +1,26 @@
+<div data-ng-init="user.getProjectsByUserid(2)">
+  <div data-ng-init="user.getUserDetails()">
+    <h1>Projects - {{projects.length}}</h1>
+    <div ng-include="'views/partials/projectinfo.html'"></div>
+
+    <!-- Projects accordion -->
+    <div class="user-projects" layout="column">
+      <uib-accordion close-others="oneAtATime">
+        <uib-accordion-group is-open="status.open" ng-repeat="project in projects">
+          <uib-accordion-heading>
+            {{project.name}}
+            <!--        <i><strong>+</strong></i>-->
+          </uib-accordion-heading>
+          <p>Project name: {{project.name}}</p>
+          <p>Total money spent: €{{project.moneyspent}}</p>
+          <p>Materials used:</p>
+          <ul data-ng-init="user.getMaterialsUsedByProjectid()">
+            <li ng-repeat="material in materialsUsed">
+              {{material.name}} - {{material.amount}} {{material.quantitytype}} - €{{material.cost}}
+            </li>
+          </ul>
+        </uib-accordion-group>
+      </uib-accordion>
+    </div>
+  </div>
+</div>

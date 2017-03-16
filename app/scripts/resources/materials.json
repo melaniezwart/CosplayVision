@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "EVA Foam",
+    "quantitytype": "sq meter",
+    "cost": 4
+  },
+  {
+    "id": 3,
+    "name": "Worbla",
+    "quantitytype": "sq meter",
+    "cost": 20
+  },
+  {
+    "id": 4,
+    "name": "Contactglue",
+    "quantitytype": "blobs",
+    "cost": 1
+  },
+  {
+    "id": 5,
+    "name": "Hot glue",
+    "quantitytype": "stick(s)",
+    "cost": 1
+  },
+  {
+    "id": 6,
+    "name": "Plasti-dip",
+    "quantitytype": "can(s)",
+    "cost": 7.5
+  },
+  {
+    "id": 7,
+    "name": "Blades",
+    "quantitytype": "blade",
+    "cost": 1
+  },
+  {
+    "id": 8,
+    "name": "Nylon strap",
+    "quantitytype": "meter",
+    "cost": 1
+  },
+  {
+    "id": 9,
+    "name": "Clasp",
+    "quantitytype": "piece",
+    "cost": 0.5
+  }
+]

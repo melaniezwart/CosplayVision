@@ -1,0 +1,56 @@
+Users:
+id          bigint  primary key
+name        varchar
+username    varchar
+password    varchar md5(?)
+email       varchar
+datejoined
+private     boolean
+website     varchar
+facebook    varchar
+twitter     varchar
+instagram   varchar
+tumblr      varchar
+twitch      varchar
+likes       bigint
+
+
+Project
+id -          bigint    primary key
+userid        bigint
+timespent     int
+moneyspent    int
+datestarted
+datefinished
+finished      boolean   not null
+private       boolean   not null
+likes         bigint
+
+
+Materials (DB)
+id              bigint  primary key
+name            varchar common
+quantitytype    varchar common
+cost            int     common
+//Or when a user makes their own version, this part is added. Nullable otherwise.
+userid          bigint
+
+
+Materials used
+id            bigint  primary key
+userid        bigint
+projectid     bigint
+name          varchar
+quantitytype  varchar
+cost          int
+amount        int
+
+
+Tasks
+id            bigint  primary key
+userid        bigint
+projectid     bigint
+description   varchar
+time          int
+cost          int
+finished      boolean

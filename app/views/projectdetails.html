@@ -1,0 +1,143 @@
+<div data-ng-init="user.getProject(1, 2)">
+  <div ng-hide="toggleEdit()">
+    <h1>{{project.name}}</h1>
+    <p><strong>Money spent:</strong> €{{project.moneyspent}}</p>
+    <p><strong>Time spent:</strong> {{project.timespent}}</p>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Material</th>
+            <th>Amount</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="material in project.materials">
+            <td>{{material.name}}</td>
+            <td>{{material.amount}} {{material.quantitytype}}</td>
+            <td>€{{material.cost}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Task</th>
+          <th>Estimated time</th>
+          <th>Estimated cost</th>
+          <th>Finished?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="task in project.todos">
+          <td ng-cloak data-ng-class="task.finished ? 'strikethrough' : 'null'">{{task.description}}</td>
+          <td ng-cloak data-ng-class="task.finished ? 'strikethrough' : 'null'">{{task.time}} hours</td>
+          <td ng-cloak data-ng-class="task.finished ? 'strikethrough' : 'null'">€{{task.cost}}</td>
+          <td><i ng-if="!task.finished" class="glyphicon glyphicon-ok"></i><i ng-if="task.finished" class="glyphicon glyphicon-remove"></i></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <button ng-click="toggleEdit()">Edit</button>
+  </div>
+
+
+
+  <!-- Div for editing project and adding materials used -->
+  <div ng-show="toggleEdit()">
+    <h1>{{project.name}}</h1>
+    <p>Money spent: €{{project.moneyspent}}</p>
+    <p>Time spent: {{project.timespent}}</p>
+    <div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Material</th>
+          <th>Amount</th>
+          <th>Cost</th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="material in project.materials">
+          <td>{{material.name}}</td>
+          <td>{{material.amount}} {{material.quantitytype}}</td>
+          <td>€{{material.cost}}</td>
+          <td><i class="glyphicon glyphicon-pencil"></i></td>
+          <td><i class="glyphicon glyphicon-trash"></i></td>
+        </tr>
+        <tr>
+          <td ng-init="user.getMaterials()"><select ng-model="newMaterial.name">
+            <option ng-repeat="typeMaterial in materials" value="{{typeMaterial.name}}">{{typeMaterial.name}} per {{typeMaterial.quantitytype}}</option>
+          </select></td>
+          <td>Amount: <input type="number" ng-model="newMaterial.amount"></td>
+          <td>Cost: <input type="number" ng-model="newMaterial.cost"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>To do's:</p>
+    <div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Task</th>
+          <th>Estimated time</th>
+          <th>Estimated cost</th>
+          <th>Finished?</th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="task in project.todos">
+          <td ng-cloak data-ng-class="task.finished ? 'strikethrough' : 'null'">{{task.description}}</td>
+          <td ng-cloak data-ng-class="task.finished ? 'strikethrough' : 'null'">{{task.time}} hours</td>
+          <td ng-cloak data-ng-class="task.finished ? 'strikethrough' : 'null'">€{{task.cost}}</td>
+          <td><i ng-if="task.finished" class="glyphicon glyphicon-ok"></i><i ng-if="!task.finished" class="glyphicon glyphicon-remove"></i></td>
+          <td><i class="glyphicon glyphicon-pencil"></i></td>
+          <td><i class="glyphicon glyphicon-trash"></i></td>
+        </tr>
+        <tr>
+          <td>Task description: <input type="text" ng-model="todo.description"></td>
+          <td>Estimated time: <input type="number" ng-model="todo.time"></td>
+          <td>Estimated cost: <input type="number" ng-model="todo.cost"></td>
+          <td><i class="glyphicon glyphicon-plus"></i></td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <button ng-click="toggleEdit()">Edit</button>
+  </div>
+  <!--<div ng-show="toggleEdit()">
+    <p>Project name
+      <input type="text" ng.model="project.name" value="{{project.name}}">
+    </p>
+    <p>Time spent
+      <input type="text" ng-model="project.timespent" value="{{project.timespent}}">
+    </p>
+    <p>Add material used and/or money spent</p>
+    <table ng-init="user.getMaterials()">
+      <tr>
+        <td><select ng-model="project.materials">
+          <option ng-repeat="material in materials" value="{{material.id}}">{{material.name}} per {{material.quantitytype}}</option>
+        </select>  </td>
+        <td>Amount: <input type="text" ng-model="project.material.amount" value="0">  </td>
+        <td>Cost: <input type="text" ng-model="project.material.cost" value="{{material.cost}}">  </td>
+      </tr>
+    </table>
+  </div>-->
+</div>
+
+<!--
+ To do:
+ - Make field a certain colour after you've changed one of the values.
+ - Validate when typing if it fits certain criteria.
+    - Cost is only numbers
+    - Amount is only numbers
+ -->

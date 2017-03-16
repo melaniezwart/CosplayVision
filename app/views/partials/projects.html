@@ -1,0 +1,16 @@
+<div layout="column">
+  <div class="user-projects" layout="column">
+    <div class="user-projects" layout="column">
+      <uib-accordion close-others="oneAtATime">
+        <uib-accordion-group is-open="true" >
+          <uib-accordion-heading>
+            Projects <strong>+</strong>
+          </uib-accordion-heading>
+          <div ng-repeat="project in projects">
+            <a ng-href="#/projectdetails/{{project.id}}">{{project.name}}</a> - €{{project.moneyspent}} - {{project.timespent}} hrs
+          </div>
+        </uib-accordion-group>
+      </uib-accordion>
+    </div>
+  </div>
+</div>

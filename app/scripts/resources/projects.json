@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "userid": 1,
+    "name": "Andromeda",
+    "moneyspent": 80,
+    "timespent": 3
+  },
+  {
+    "id": 2,
+    "userid": 1,
+    "name": "N7 Armor",
+    "moneyspent": 65,
+    "timespent": 7
+  },
+  {
+    "id": 3,
+    "userid": 1,
+    "name": "Dragonborn",
+    "moneyspent": 40,
+    "timespent": 9
+  },
+  {
+    "id": 4,
+    "userid": 2,
+    "name": "Chloe Price",
+    "moneyspent": 30,
+    "timespent": 6
+  },
+  {
+    "id": 5,
+    "userid": 2,
+    "name": "Lydia",
+    "moneyspent": 80,
+    "timespent": 12
+  },
+  {
+    "id": 6,
+    "userid": 2,
+    "name": "Collector Armor",
+    "moneyspent": 130,
+    "timespent": 33
+  }
+]

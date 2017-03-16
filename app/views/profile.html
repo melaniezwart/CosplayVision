@@ -1,0 +1,48 @@
+<!-- Upon loading this page we'll need to load up user details and update them,
+ such as calculate time and money spent on cosplay, as well as update all the
+ project details such as money spent on each project -->
+<div data-ng-init="user.getUserDetails()">
+  <div data-ng-init="user.getProjectsByUserid(2)">
+
+    <div>
+      <div class="col-sm-8">
+        <h2>{{userDetails.username}}</h2>
+        <p>Name: {{userDetails.name}}</p>
+        <p>E-mail: {{userDetails.email}}</p>
+        <p>Date joined: {{userDetails.datejoined}}</p>
+        <p>Time spent on cosplay: {{user.getTimeSpent()}} days</p>
+        <p>Money spent on cosplay: €{{user.getMoneySpent()}}</p>
+        <p>Website: {{userDetails.website}}</p>
+        <table>
+          <tr>
+            <td><i class="fa fa-facebook fa-2" aria-hidden="true"></i></td>
+            <td><a href="{{userDetails.facebook}}">Facebook</a></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-twitter fa-2" aria-hidden="true"></i></td>
+            <td><a href="{{userDetails.twitter}}">Twitter</a></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-instagram fa-2" aria-hidden="true"></i></td>
+            <td><a href="{{userDetails.instagram}}">Instagram</a></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-tumblr fa-2" aria-hidden="true"></i></td>
+            <td><a href="{{userDetails.tumblr}}">Tumblr</a></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-twitch fa-2" aria-hidden="true"></i></td>
+            <td><a href="{{userDetails.twitch}}">Twitch</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <img ng-src="http://lorempixel.com/200/200/animals?1" class="user-image"/>
+    </div>
+  </div>
+  <br />
+  <div class="col-sm-8" ng-include src="'views/partials/projects.html'"></div>
+
+</div>

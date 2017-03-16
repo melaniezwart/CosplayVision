@@ -1,0 +1,108 @@
+[{
+  "id": 1,
+  "name":"Jane Francis",
+  "username": "JaneMadelyne",
+  "email": "mel@mel.nl",
+  "datejoined": "20-02-2016",
+  "projects": [
+    {
+      "name": "Andromeda",
+      "moneyspent": 80,
+      "timespent": 3,
+      "materials": [
+        {"name": "EVA Foam", "amount": 1, "quantitytype": "sq meter", "cost": 4},
+        {"name": "Worbla", "amount": 1, "quantitytype": "sq meter", "cost": 26},
+        {"name": "Other", "amount": 0, "quantitytype": "sq meter", "cost": 16}
+      ],
+      "todos": [
+        {"description": "Testing todo", "time": 4, "cost": 9},
+        {"description": "Testing another", "time": 6, "cost": 25},
+        {"description": "Something to do", "time": 1, "cost": 3}
+      ]
+    },
+    {
+      "name": "N7 Armor",
+      "moneyspent": 65,
+      "timespent": 7,
+      "materials": [
+        {"name": "EVA Foam", "amount": 1, "quantitytype": "sq meter", "cost": 4},
+        {"name": "Worbla", "amount": 1, "quantitytype": "sq meter", "cost": 51},
+        {"name": "Other", "amount": 0, "quantitytype": "sq meter", "cost": 62}
+      ],
+      "todos": [
+        {"description": "Testing todo", "time": 4, "cost": 9},
+        {"description": "Testing another", "time": 6, "cost": 25},
+        {"description": "Something to do", "time": 1, "cost": 3}
+      ]
+    },
+    {
+      "name": "Dragonborn",
+      "moneyspent": 40,
+      "timespent": 9,
+      "materials": [
+        {"name": "EVA Foam", "amount": 1, "quantitytype": "sq meter", "cost": 37},
+        {"name": "Worbla", "amount": 1, "quantitytype": "sq meter", "cost": 26},
+        {"name": "Other", "amount": 0, "quantitytype": "sq meter", "cost": 15}
+      ],
+      "todos": [
+        {"description": "Testing todo", "time": 4, "cost": 9},
+        {"description": "Testing another", "time": 6, "cost": 25},
+        {"description": "Something to do", "time": 1, "cost": 3}
+      ]
+    }
+  ]
+},
+{
+  "id": 2,
+  "name":"Chloe Lyons",
+  "username": "ChloeLyons",
+  "email": "chloe@mel.nl",
+  "datejoined": "25-08-2016",
+  "projects": [
+    {
+      "name": "Chloe Price",
+      "moneyspent": 30,
+      "timespent": 6,
+      "materials": [
+        {"name": "EVA Foam", "amount": 7, "quantitytype": "sq meter", "cost": 1},
+        {"name": "Worbla", "amount": 6, "quantitytype": "sq meter", "cost": 2},
+        {"name": "Other", "amount": 0, "quantitytype": "sq meter", "cost": 3}
+      ],
+      "todos": [
+        {"description": "Testing todo", "time": 4, "cost": 9, "finished": true},
+        {"description": "Testing another", "time": 6, "cost": 25, "finished": false},
+        {"description": "Something to do", "time": 1, "cost": 3, "finished": false}
+      ]
+    },
+    {
+      "name": "Collector Armor",
+      "moneyspent": 130,
+      "timespent": 33,
+      "materials": [
+        {"name": "EVA Foam", "amount": 5, "quantitytype": "sq meter", "cost": 4},
+        {"name": "Worbla", "amount": 4, "quantitytype": "sq meter", "cost": 5},
+        {"name": "Other", "amount": 0, "quantitytype": "sq meter", "cost": 6}
+      ],
+      "todos": [
+        {"description": "Testing todo", "time": 4, "cost": 9},
+        {"description": "Testing another", "time": 6, "cost": 25},
+        {"description": "Something to do", "time": 1, "cost": 3}
+      ]
+    },
+    {
+      "name": "Lydia",
+      "moneyspent": 80,
+      "timespent": 12,
+      "materials": [
+        {"name": "EVA Foam", "amount": 2, "quantitytype": "sq meter", "cost": 7},
+        {"name": "Worbla", "amount": 3, "quantitytype": "sq meter", "cost": 8},
+        {"name": "Other", "amount": 0, "quantitytype": "sq meter", "cost": 9}
+      ],
+      "todos": [
+        {"description": "Testing todo", "time": 4, "cost": 9, "finished": true},
+        {"description": "Testing another", "time": 6, "cost": 25, "finished": false},
+        {"description": "Something to do", "time": 1, "cost": 3, "finished": true}
+      ]
+    }
+  ]
+}]

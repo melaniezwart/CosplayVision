@@ -1,0 +1,26 @@
+{
+  "user": {
+    "name": "",
+    "username": "",
+    "email": "",
+    "password": "",
+    "datejoined": "",
+    "description": "User can edit all values except that of date joined.",
+    "projects": {
+      "name": "",
+      "timespent": "",
+      "moneyspent": "",
+      "datestarted": "",
+      "datefinished": "",
+      "finished": "",
+      "description": "User can define their project with a name, can tick or untick finished and can edit preset values of: date started, timespent and moneyspent. These preset values follow date started and cost of materials but are free to edit",
+      "material": {
+        "name": "",
+        "amount": "",
+        "quantitytype": "",
+        "cost": "",
+        "description": "When a user makes or edits a project, they can either choose an existing template with preset quantity type, name and cost. A copy will be made for the database. The user can still edit their cost and amount in their own copy."
+      }
+    }
+  }
+}

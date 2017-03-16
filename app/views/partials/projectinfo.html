@@ -1,0 +1,50 @@
+
+<div class="row row-stats">
+  <div class="statsspan">
+    <b>€{{user.getMoneySpent()}}</b>
+    <em>Total money spent</em>
+  </div>
+  <div class="statsspan">
+    <b>{{user.getTimeSpent()}} hours</b>
+    <em>Total time spent</em>
+  </div>
+<div class="row row-stats">
+</div>
+  <div class="statsspan">
+    <b>€{{user.getAvgSpent()}}</b>
+    <em>Average money spent per project</em>
+  </div>
+  <div class="statsspan">
+    <b>{{user.getAvgTime()}} hours</b>
+    <em>Average time spent per project</em>
+  </div>
+</div>
+
+<!--
+
+
+    <h1>Projects</h1>
+    <p>Total money spent: €{{user.getMoneySpent()}}</p>
+    <p>Total time spent: {{user.getTimeSpent()}} days</p>
+    <p># of projects: {{projects.length}}</p>
+    <p>Average money spent per project: €{{user.getAvgSpent()}}</p>
+    <p>Average time spent per project: {{user.getAvgTime()}} days</p>
+    <div class="user-projects" layout="column">
+      <uib-accordion close-others="oneAtATime">
+        <uib-accordion-group is-open="status.open" ng-repeat="project in projects">
+          <uib-accordion-heading>
+            {{project.name}}
+            &lt;!&ndash;        <i><strong>+</strong></i>&ndash;&gt;
+          </uib-accordion-heading>
+          <p>Project name: {{project.name}}</p>
+          <p>Total money spent: €{{project.moneyspent}}</p>
+          <p>Materials used:</p>
+          <ul data-ng-init="user.getMaterialsUsedByProjectid()">
+            <li ng-repeat="material in materialsUsed">
+              {{material.name}} - {{material.amount}} {{material.quantitytype}} - €{{material.cost}}
+            </li>
+          </ul>
+        </uib-accordion-group>
+      </uib-accordion>
+    </div>
+-->
