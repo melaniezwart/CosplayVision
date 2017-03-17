@@ -1,0 +1,32 @@
+<div data-ng-init="ctrl.getAllMaterials()">
+  <div class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li class="active"><a ng-href="#/admin/managematerials">Manage materials</a></li>
+      <li><a ng-href="#/admin/manageproject">Manage projects</a></li>
+      <li><a ng-href="#/admin/managetasks">Manage tasks</a></li>
+      <li><a ng-href="#/admin/userlist">Manage users</a></li>
+    </ul>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td>Index</td>
+      <td>Name</td>
+      <td>Quantitytype</td>
+      <td>Cost</td>
+      <td>Userid</td>
+      <td>Link</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="material in materials">
+      <td>{{material.id}}</td>
+      <td>{{material.name}}</td>
+      <td>{{material.quantitytype}}</td>
+      <td>{{material.cost}}</td>
+      <td>{{material.userid}}</td>
+      <td>{{material.link}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

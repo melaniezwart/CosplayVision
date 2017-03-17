@@ -1,0 +1,43 @@
+<div data-ng-init="ctrl.getAllUsers()">
+  <div class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li><a ng-href="#/admin/managematerials">Manage materials</a></li>
+      <li><a ng-href="#/admin/manageproject">Manage projects</a></li>
+      <li><a ng-href="#/admin/managetasks">Manage tasks</a></li>
+      <li class="active"><a ng-href="#/admin/userlist">Manage users</a></li>
+    </ul>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td>Index</td>
+      <td>Name</td>
+      <td>Username</td>
+      <td>Email</td>
+      <td>Date joined</td>
+      <td>Private</td>
+      <td>Website</td>
+      <td>Facebook</td>
+      <td>Twitter</td>
+      <td>Likes</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in users">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.datejoined}}</td>
+      <td>
+        <span ng-show="user.private">Yes</span>
+        <span ng-show="!user.private">No</span>
+      </td>
+      <td>{{user.website}}</td>
+      <td>{{user.facebook}}</td>
+      <td>{{user.twitter}}</td>
+      <td>{{user.likes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

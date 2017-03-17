@@ -53,6 +53,36 @@ angular
         controller: 'userCtrl',
         controllerAs: 'user'
       })
+      .when('/startupproject', {
+        templateUrl: 'views/startupproject.html',
+        controller: 'userCtrl',
+        controllerAs: 'user'
+      })
+      .when('/admin/userlist', {
+        templateUrl: 'views/admin/userlist.html',
+        controller: 'adminCtrl',
+        controllerAs: 'ctrl'
+      })
+      .when('/admin/manageproject', {
+        templateUrl: 'views/admin/manageproject.html',
+        controller: 'adminCtrl',
+        controllerAs: 'ctrl'
+      })
+      .when('/admin/managematerials', {
+        templateUrl: 'views/admin/managematerials.html',
+        controller: 'adminCtrl',
+        controllerAs: 'ctrl'
+      })
+      .when('/admin/managetasks', {
+        templateUrl: 'views/admin/managetasks.html',
+        controller: 'adminCtrl',
+        controllerAs: 'ctrl'
+      })
+      .when('/admin/adminpage', {
+        templateUrl: 'views/admin/adminmain.html',
+        controller: 'adminCtrl',
+        controllerAs: 'ctrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

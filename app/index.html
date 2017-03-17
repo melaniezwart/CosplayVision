@@ -44,46 +44,13 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="#/">cosZone</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/profile">Profile</a></li>
-              <li><a ng-href="#/projects">Projects</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a ng-href="#/register"><i class="glyphicon glyphicon-user"> </i> Sign up</a></li>
-              <li><a ng-href="#/login"><i class="glyphicon glyphicon-log-in"> </i> Login</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div ng-include="'views/partials/header.html'"></div>
 
     <div class="container">
     <div ng-view=""></div>
     </div>
     <br />
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from Kate McKinnon</p>
-      </div>
-    </div>
+    <div ng-include="'views/partials/footer.html'"></div>
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
@@ -91,6 +58,7 @@
         <script src="scripts/util/home.js"></script>
         <script src="scripts/controllers/user.js"></script>
         <script src="scripts/service/userService.js"></script>
+        <script src="scripts/controllers/adminCtrl.js"></script>
         <!-- endbuild -->
 </body>
 </html>

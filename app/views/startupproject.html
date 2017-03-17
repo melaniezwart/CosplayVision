@@ -27,6 +27,23 @@
   </div>
 
   <!--
+    Chips
+  -->
+
+  <div data-ng-init="user.getArmorChips()">
+    <div data-ng-init="user.getMaterials()">
+      <md-chips readonly="true" class="custom-chips" ng-model="armorChips">
+        <md-chip-template>
+            <span ng-click="user.addChipToProject($chip)">
+              <strong>{{$chip.name}}</strong>
+              <em>({{$chip.mainmaterial}})</em>
+            </span>
+        </md-chip-template>
+      </md-chips>
+    </div>
+  </div>
+
+  <!--
     Task list
   -->
   <h3>Task list</h3>
@@ -72,7 +89,7 @@
     Materials
     -->
 
-    <div id="planningTool" class="well">
+    <div id="planningTool">
       <div>
         <h3>Materials</h3>
         <table class="table table-striped">

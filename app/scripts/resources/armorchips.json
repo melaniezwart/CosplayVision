@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Chestpiece",
+    "type": "chest",
+    "mainmaterial": "EVA Foam",
+    "tasks": [
+      {"task": "Design the chestpiece", "time": 2, "cost": 1},
+      {"task": "Make the base of the chestpiece", "time": 8, "cost": 20},
+      {"task": "Add details to the chestpiece", "time": 2, "cost": 10},
+      {"task": "Paint the chestpiece", "time": 6, "cost": 10}
+    ],
+    "materials": [
+      {"id": 1, "amount": 4},
+      {"id": 4, "amount": 2},
+      {"id": 5, "amount": 5},
+      {"id": 6, "amount": 2},
+      {"id": 7, "amount": 1},
+      {"id": 8, "amount": 4},
+      {"id": 9, "amount": 6}
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Helmet",
+    "type": "head",
+    "mainmaterial": "EVA Foam",
+    "tasks": [
+      {"task": "Design the helmet", "time": 2, "cost": 1},
+      {"task": "Make the base of the helmet", "time": 6, "cost": 16},
+      {"task": "Add details to the helmet", "time": 1, "cost": 7},
+      {"task": "Paint the helmet", "time": 4, "cost": 7}
+    ],
+    "materials": [
+      {"id": 1, "amount": 2},
+      {"id": 4, "amount": 2},
+      {"id": 5, "amount": 3},
+      {"id": 6, "amount": 1},
+      {"id": 7, "amount": 1}
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Shield",
+    "type": "off-hand",
+    "mainmaterial": "EVA Foam",
+    "tasks": [
+      {"task": "Design the shield", "time": 2, "cost": 1},
+      {"task": "Make the base of the shield", "time": 6, "cost": 20},
+      {"task": "Add details to the shield", "time": 2, "cost": 10},
+      {"task": "Paint the shield", "time": 4, "cost": 10}
+    ],
+    "materials": [
+      {"id": 1, "amount": 3},
+      {"id": 4, "amount": 2},
+      {"id": 5, "amount": 2},
+      {"id": 6, "amount": 1},
+      {"id": 7, "amount": 1},
+      {"id": 8, "amount": 2},
+      {"id": 9, "amount": 2}
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Bow",
+    "type": "main-hand",
+    "mainmaterial": "Worbla",
+    "tasks": [
+      {"task": "Design the bow", "time": 2, "cost": 1},
+      {"task": "Make the base of the bow", "time": 9, "cost": 40},
+      {"task": "Add details to the bow", "time": 2, "cost": 10},
+      {"task": "Paint the bow", "time": 5, "cost": 10}
+    ],
+    "materials": [
+      {"id": 3, "amount": 3},
+      {"id": 4, "amount": 1},
+      {"id": 5, "amount": 2},
+      {"id": 6, "amount": 2},
+      {"id": 7, "amount": 1}
+    ]
+  }
+]

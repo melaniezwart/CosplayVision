@@ -1,0 +1,30 @@
+<div data-ng-init="ctrl.getAllProjects()">
+  <div class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li><a ng-href="#/admin/managematerials">Manage materials</a></li>
+      <li class="active"><a ng-href="#/admin/manageproject">Manage projects</a></li>
+      <li><a ng-href="#/admin/managetasks">Manage tasks</a></li>
+      <li><a ng-href="#/admin/userlist">Manage users</a></li>
+    </ul>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td>Index</td>
+      <td>Name</td>
+      <td>UserID</td>
+      <td>Money spent</td>
+      <td>Time spent</td>
+    </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="project in projects">
+        <td>{{project.id}}</td>
+        <td>{{project.name}}</td>
+        <td>{{project.userid}}</td>
+        <td>{{project.moneyspent}}</td>
+        <td>{{project.timespent}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -129,10 +129,12 @@ angular.module('cosZoneApp')
     };
     ctrl.removeMaterial = function(material) {
       var index = ctrl.project.materials.indexOf(material);
+      logger.info("Removing " + material.name + " with index " + index + " which in the list is " + ctrl.project.materials[index].name);
       if(index === 0){
         ctrl.project.materials.shift();
+      } else {
+        ctrl.project.materials.splice(index, 1);
       }
-      ctrl.project.materials.splice(index, index);
     };
 
     /*
@@ -148,8 +150,9 @@ angular.module('cosZoneApp')
       var index = ctrl.project.taskList.indexOf(task);
       if(index === 0){
         ctrl.project.taskList.shift();
+      } else {
+        ctrl.project.taskList.splice(index, 1);
       }
-      ctrl.project.taskList.splice(index, index);
     };
     ctrl.toggleDone = function(task){
       task.finished = !task.finished;
@@ -175,4 +178,41 @@ angular.module('cosZoneApp')
       }
     };
 
+    /*
+    Chips
+     */
+    ctrl.getArmorChips = function(){
+      userService.getArmorChips().then(function(data){
+        $scope.armorChips = JSON.parse(JSON.stringify(data));
+      })
+    };
+
+    ctrl.addChipToProject = function(chip){
+      logger.info("Adding chip to project");
+      ctrl.addChipMaterials(chip.materials);
+      ctrl.addChipTasks(chip.tasks);
+    };
+
+    ctrl.addChipMaterials = function(materials){
+      logger.info("Adding " + materials.length + " materials");
+      angular.forEach(materials, function(material){
+        /*var dbMaterial = userService.getMaterialById(material.id); TODO add when database is in place*/
+        logger.info("Adding material with id " + material.id);
+        angular.forEach($scope.materials, function(dbMaterial){
+          logger.info("Attempting to find material");
+          if(dbMaterial.id === material.id){
+            logger.info("Adding " + dbMaterial.name + " to project");
+            ctrl.project.materials.push({name:dbMaterial.name, amount: material.amount, cost: (dbMaterial.cost * material.amount), quantitytype: dbMaterial.quantitytype});
+          } else {
+            logger.info("No material found with matching id");
+          }
+        });
+      });
+    };
+
+    ctrl.addChipTasks = function(tasks){
+      angular.forEach(tasks, function(task){
+        ctrl.project.taskList.push({task:task.task, time: task.time, cost: task.cost, finished:false});
+      });
+    };
   });
