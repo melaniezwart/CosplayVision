@@ -8,29 +8,29 @@
       <div class="col-sm-8">
         <h2>{{userDetails.username}}</h2>
         <p>Name: {{userDetails.name}}</p>
-        <p>E-mail: {{userDetails.email}}</p>
+        <p ng-show="userDetails.showemail">E-mail: <a href="mailto:{{userDetails.email}}">{{userDetails.email}}</a></p>
         <p>Date joined: {{userDetails.datejoined}}</p>
         <p>Time spent on cosplay: {{user.getTimeSpent()}} days</p>
         <p>Money spent on cosplay: €{{user.getMoneySpent()}}</p>
-        <p>Website: {{userDetails.website}}</p>
+        <p>Website: <a href="{{userDetails.website}}">{{userDetails.website}}</a></p>
         <table>
-          <tr>
+          <tr ng-show="userDetails.facebook">
             <td><i class="fa fa-facebook fa-2" aria-hidden="true"></i></td>
             <td><a href="{{userDetails.facebook}}">Facebook</a></td>
           </tr>
-          <tr>
+          <tr ng-show="userDetails.twitter">
             <td><i class="fa fa-twitter fa-2" aria-hidden="true"></i></td>
             <td><a href="{{userDetails.twitter}}">Twitter</a></td>
           </tr>
-          <tr>
+          <tr ng-show="userDetails.instagram">
             <td><i class="fa fa-instagram fa-2" aria-hidden="true"></i></td>
             <td><a href="{{userDetails.instagram}}">Instagram</a></td>
           </tr>
-          <tr>
+          <tr ng-show="userDetails.tumblr">
             <td><i class="fa fa-tumblr fa-2" aria-hidden="true"></i></td>
             <td><a href="{{userDetails.tumblr}}">Tumblr</a></td>
           </tr>
-          <tr>
+          <tr ng-show="userDetails.twitch">
             <td><i class="fa fa-twitch fa-2" aria-hidden="true"></i></td>
             <td><a href="{{userDetails.twitch}}">Twitch</a></td>
           </tr>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="col-sm-4">
-      <img ng-src="http://lorempixel.com/200/200/animals?1" class="user-image"/>
+      <img ng-src="http://lorempixel.com/200/200/cats?1" class="user-image"/>
     </div>
   </div>
   <br />

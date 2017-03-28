@@ -1,0 +1,22 @@
+getUserById: (id)                               SELECT * FROM users WHERE id = ''
+getAllUsers:                                    SELECT * FROM users;
+
+getProject: (userid, projectid)                 SELECT * FROM projects WHERE id = ''
+getProjectsByUserid: (userid)                   SELECT * FROM projects WHERE userid = ''
+getAllProjects:                                 SELECT * FROM projects
+getProjectByName: (name)                        SELECT * FROM projects WHERE name = ''
+
+getMaterialsUsedByUserid: (userid)              SELECT * FROM materialsused WHERE userid = ''
+getMaterialsUsedByProjectid: (projectid)        SELECT * FROM materialsused WHERE projectid = ''
+getMaterials:                                   SELECT * FROM materials WHERE userid = null
+                                                SELECT * FROM materials WHERE userid = ''
+getMaterialById: (id)                           SELECT * FROM materials WHERE id = ''
+
+getTasksByProjectid: (projectid)                SELECT * FROM tasks WHERE projectid = ''
+getAllTasks:                                    SELECT * FROM tasks
+
+getArmorChips:                                  SELECT * FROM chips WHERE type = ''
+
+INSERT INTO users (name, username, password, email) VALUES (:nam, :usr, :psw, :eml);
+UPDATE users SET name = @0, email = @1, private = @2, website = @3, facebook = @4, twitter = @5, instagram = @6, tumblr = @7, twitch = @8, deadlinereminders = @9, monthlyupdates = @10, language = @11, currency = @12 WHERE id = @13;
+UPDATE users SET password = @0 WHERE id = @1;

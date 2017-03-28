@@ -13,6 +13,10 @@ instagram   varchar
 tumblr      varchar
 twitch      varchar
 likes       bigint
+deadlinereminders boolean
+monthlyupdates    boolean
+language          varchar
+currency          varchar
 
 
 Project
@@ -32,7 +36,7 @@ id              bigint  primary key
 name            varchar common
 quantitytype    varchar common
 cost            int     common
-//Or when a user makes their own version, this part is added. Nullable otherwise.
+//Or when a user makes their own version, this part is added. Nullable otherwise. Or 0 otherwise.
 userid          bigint
 
 

@@ -36,6 +36,18 @@ angular.module('cosZoneApp').factory('userService', ['$http', function ($http) {
         return result.data;
       });
     },
+    getProjectByName: function (name){
+      return $http.get('scripts/resources/singleuser/projects.json').then(function(result) {
+        var allProjects = result.data;
+        angular.forEach(allProjects, function(project){
+          if(name === project.name){
+            return project;
+          } else {
+            return null;
+          }
+        });
+      });
+    },
 
     getMaterialsUsedByUserid: function(userid){
       return $http.get('scripts/resources/singleuser/materialsused.json').then(function(result) {

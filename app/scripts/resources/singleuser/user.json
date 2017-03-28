@@ -1,12 +1,17 @@
 {
   "id": 2,
-  "name":"Chloe Lyons",
-  "username": "ChloeLyons",
-  "email": "chloe@mel.nl",
+  "name":"Jane",
+  "username": "JaneMadelyne",
+  "email": "info@cosplayvision.com",
+  "showemail": true,
   "datejoined": "25-08-2016",
   "private": false,
-  "website": "http://chloe.ly",
-  "facebook": "http://facebook.com/chloelyons",
-  "twitter": "http://twitter.com/chl",
-  "likes": 3
+  "website": "http://cosplayvision.com",
+  "facebook": "http://facebook.com/cosplayingnl",
+  "twitter": "http://twitter.com/cosplaying_nl",
+  "likes": 3,
+  "deadlinereminders": true,
+  "monthlyupdates": true,
+  "language": "enUS",
+  "currency": "euro"
 }

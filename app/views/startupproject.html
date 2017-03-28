@@ -4,24 +4,24 @@
     <div class="col-sm-5">
       <md-content>
         <h2>New project</h2>
-        <p><input required type="text" ng-model="user.project.name" size="25" placeholder="Name"></p>
+        <p><input class="form-control" type="text" ng-model="user.project.name" placeholder="Name"></p>
         <p>Deadline
           <md-datepicker ng-model="user.project.deadline" md-placeholder="Enter deadline"
                          md-open-on-focus=""></md-datepicker>
         </p>
+        <p><input type="checkbox" ng-model="user.project.deadlineremind"> Remind me of deadline </p>
+        <p><input type="checkbox" ng-model="user.project.private"> Private project</p>
       </md-content>
     </div>
     <div class="col-sm-5 well">
 
       <div class="row-stats" aria-label="The estimate is based on the costs of the currently unfinished tasks.">
-        <md-tooltip>The estimate is based on the costs of the currently unfinished tasks.</md-tooltip>
         <b>€{{user.calcEstimatedCost()}}</b>
-        <em>Estimated cost</em>
+        <em>Estimated cost <i class="glyphicon glyphicon-question-sign"><md-tooltip>The estimate is based on the costs of the currently unfinished tasks.</md-tooltip></i></em>
       </div>
       <div class="row-stats" aria-label="The estimate is based on the times of the currently unfinished tasks.">
-        <md-tooltip>The estimate is based on the times of the currently unfinished tasks.</md-tooltip>
         <b>{{user.calcEstimatedTime()}} hours</b>
-        <em>Estimated time needed</em>
+        <em>Estimated time needed <i class="glyphicon glyphicon-question-sign"><md-tooltip>The estimate is based on the times of the currently unfinished tasks.</md-tooltip></i></em>
       </div>
     </div>
   </div>
@@ -29,8 +29,8 @@
   <!--
     Chips
   -->
-
   <div data-ng-init="user.getArmorChips()">
+    <h4>Use pre-made templates <i class="glyphicon glyphicon-question-sign"><md-tooltip>These templates will generate relevant tasks and add needed material. You can then edit as you see fit.</md-tooltip></i></h4>
     <div data-ng-init="user.getMaterials()">
       <md-chips readonly="true" class="custom-chips" ng-model="armorChips">
         <md-chip-template>
@@ -47,7 +47,7 @@
     Task list
   -->
   <h3>Task list</h3>
-
+  <em class="info-block">The tasks you add to the project will help you get an estimation on your project. After you've started your new project you are free to edit them as you see fit, to make sure your list is as accurate as possible. This will help you in estimating future projects.</em>
   <div>
     <table class="table table-striped">
       <thead>
@@ -77,9 +77,9 @@
         </td>
       </tr>
       <tr>
-        <td><input type="text" ng-model="taskInput" size="25" placeholder="Task description"></td>
-        <td><input type="number" ng-model="taskTime" size="8" placeholder="Hours"></td>
-        <td><input type="number" ng-model="taskCost" size="8" placeholder="€"></td>
+        <td><input class="form-control" type="text" ng-model="taskInput" size="25" placeholder="Task description"></td>
+        <td><input class="form-control" type="number" ng-model="taskTime" size="8" placeholder="Hours"></td>
+        <td><input class="form-control" type="number" ng-model="taskCost" size="8" placeholder="€"></td>
         <td><input type="submit" value="Add task" class="btn btn-default" ng-click="user.addTask()"></td>
       </tr>
       </tbody>
@@ -92,6 +92,7 @@
     <div id="planningTool">
       <div>
         <h3>Materials</h3>
+        <em class="info-block">These materials have no influence on your estimation, but it can help you plan your shopping more efficiently. After your project has started you can edit this list at any point, to make sure the list is as accurate as possible. This will also help you in any future projects.</em>
         <table class="table table-striped">
           <thead>
           <tr>
@@ -104,38 +105,31 @@
           </thead>
 
           <tbody>
-          <tr ng-show="user.project.materials > 0" ng-repeat="x in user.project.taskList">
-            <td ng-cloak data-ng-class="x.finished ? 'strikethrough' : 'null'">{{x.task}}</td>
-            <td ng-cloak data-ng-class="x.finished ? 'strikethrough' : 'null'">{{x.time}} hours</td>
-            <td ng-cloak data-ng-class="x.finished ? 'strikethrough' : 'null'">€{{x.cost}}</td>
-            <td>
-              <button type="button" data-ng-class="x.finished ? 'btn btn-danger' : 'btn btn-success'"
-                      ng-click="user.toggleDone(x);">
-                <i ng-cloak data-ng-class="x.finished ? 'glyphicon glyphicon-remove' : 'glyphicon glyphicon-ok'"></i>
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-danger" ng-click="user.removeTask(x)">
-                <i class="glyphicon glyphicon-trash"></i>
-              </button>
-            </td>
-          </tr>
 
           <tr ng-repeat="material in user.project.materials">
-            <td>{{material.name}}</td>
-            <td>{{material.amount}} {{material.quantitytype}}</td>
-            <td>€{{material.cost}}</td>
-            <td><i class="glyphicon glyphicon-pencil"></i></td><!-- TODO make editing possible -->
+            <td>
+              <span class="col-sm-10" ng-show="!material.editmode">{{material.name}}</span>
+              <input class="form-control" type="text" ng-model="material.name" ng-show="material.editmode">
+            </td>
+            <td>
+              <span class="col-sm-2" ng-show="!material.editmode">{{material.amount}} </span>
+              <input class="form-control col-sm-2" type="number" ng-model="material.amount" ng-show="material.editmode"><span class="col-sm-4">{{material.quantitytype}}</span></td>
+            <td>
+              <span class="col-sm-2">€</span>
+              <span class="col-sm-2" ng-show="!material.editmode">{{material.cost}}</span>
+              <input class="form-control col-sm-2" type="number" ng-model="material.cost" ng-show="material.editmode">
+              </td>
+            <td><!--<i class="btn btn-default glyphicon glyphicon-pencil" ng-click="user.toggleEditMode(material)"></i>--></td><!-- TODO make editing possible -->
             <td><i class="btn btn-danger glyphicon glyphicon-trash" ng-click="user.removeMaterial(material)"></i></td>
           </tr>
 
           <tr>
-            <td ng-init="user.getMaterials()"><select ng-model="newMaterial" class="btn btn-default"
+            <td ng-init="user.getMaterials()"><select ng-model="newMaterial" class="btn btn-default col-sm-10"
                                                       ng-options="typeMaterial.name for typeMaterial in materials"></select>
             </td>
-            <td><input class="form-control" type="number" ng-model="newMaterial.amount"
+            <td><input class="form-control col-sm-3" type="number" ng-model="newMaterial.amount"
                        placeholder="Amount per {{newMaterial.quantitytype}}"></td>
-            <td><input class="form-control" type="number" ng-model="newMaterial.cost" placeholder="€"></td>
+            <td><input class="form-control col-sm-3" type="number" ng-model="newMaterial.cost" placeholder="€"></td>
             <td>
               <button type="button" class="btn btn-success" ng-click="user.addMaterial(newMaterial)"><i
                 class="glyphicon glyphicon-plus"></i></button>

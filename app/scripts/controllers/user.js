@@ -92,7 +92,7 @@ angular.module('cosZoneApp')
     $scope.typeMaterial = {name: '', amount: 0, cost: 0, quantitytype: ''};
 
     ctrl.addProject = function(){
-      //TODO Save project, retrieve the id of the project, then save the tasks with the projectid.
+      //TODO Save project, retrieve the id of the project, then save the tasks and materials with the projectid.
       logger.info("Adding new project. Name: " + ctrl.project.name + ", deadline: " + ctrl.project.deadline.toDateString() + " and a task list with " + ctrl.project.taskList.length + " entries");
       ctrl.project = {name: "",
         deadline: new Date(),
@@ -105,7 +105,9 @@ angular.module('cosZoneApp')
       var project = ctrl.project;
       var estimate = 0;
       angular.forEach(project.taskList, function(task){
-        estimate = estimate + task.cost;
+        if(!task.finished){
+          estimate = estimate + task.cost;
+        }
       });
       return estimate;
     };
@@ -113,7 +115,9 @@ angular.module('cosZoneApp')
       var project = ctrl.project;
       var estimate = 0;
       angular.forEach(project.taskList, function(task){
-        estimate = estimate + task.time;
+        if(!task.finished) {
+          estimate = estimate + task.time;
+        }
       });
       return estimate;
     };
@@ -122,7 +126,7 @@ angular.module('cosZoneApp')
     Editing materials in a new project
      */
     ctrl.addMaterial = function(material) {
-      ctrl.project.materials.push({name:material.name, amount: material.amount, cost: material.cost, quantitytype: material.quantitytype});
+      ctrl.project.materials.push({name:material.name, amount: material.amount, cost: material.cost, quantitytype: material.quantitytype, editmode: false});
       $scope.matName = "";
       $scope.matAmount = "";
       $scope.matCost = "";
@@ -134,6 +138,15 @@ angular.module('cosZoneApp')
         ctrl.project.materials.shift();
       } else {
         ctrl.project.materials.splice(index, 1);
+      }
+    };
+    ctrl.toggleEditMode = function(material){
+      if(material.editmode){
+        ctrl.project.materials.
+        material.editmode = false;
+      } else {
+
+        material.editmode = true;
       }
     };
 

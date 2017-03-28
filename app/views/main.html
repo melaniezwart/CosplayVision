@@ -4,14 +4,12 @@
   </div>
     <!-- Left column -->
   <div class="col-sm-7">
-    <a class="btn btn-primary" ng-href="#/admin/adminpage">Admin page</a>
   </div>
 
   <!-- Right column -->
   <div data-ng-init="user.getProjectsByUserid(1)" class="col-sm-5 well">
     <h3>Projects</h3>
-    <p><a class="btn btn-primary" ng-href="#/newproject">New project</a></p>
-    <p><a class="btn btn-primary" ng-href="#/startupproject">Start-up project</a></p>
+    <p><a class="btn btn-primary" ng-href="#/startupproject">New project</a></p>
     <div ng-include="'views/partials/projectinfo.html'"></div>
     <div ng-include="'views/partials/projects.html'"></div>
   </div>
